@@ -253,8 +253,9 @@ class DynamicDoc extends Polymer.TkLocalizerMixin(Polymer.mixinBehaviors([], Pol
                     importDto.ctcs.forEach(contact => {
                         this.api.contact().initDelegationsAndEncryptionKeys(this.user, this.patient, contact).then(ctc => {
                             console.log("add contact"+ctc)
-							let c =  this.api.contact().modifyContact(this.user, ctc);
-                            this.dispatchEvent(new CustomEvent('import-contact', { detail: { selection: { item: c } } }));
+							this.api.contact().modifyContact(this.user, ctc).then(c => {
+                                this.dispatchEvent(new CustomEvent('import-contact', { detail: { selection: { item: c } } }));
+							});
                         })
 					})
 				})
