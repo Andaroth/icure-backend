@@ -521,14 +521,4 @@ public class Patient extends StoredICureDocument implements Person {
 		}
 	}
 
-	private String encryptedSelf;
-	@Override
-	public String getEncryptedSelf() {
-		return encryptedSelf;
-	}
-
-	@Override
-	public void setEncryptedSelf(String encryptedSelf) {
-		this.encryptedSelf = encryptedSelf;
-	}
 }

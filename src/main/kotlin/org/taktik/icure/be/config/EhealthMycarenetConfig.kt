@@ -43,10 +43,9 @@ import org.taktik.icure.services.external.rest.v1.transformationhandlers.V1Mappe
 class EhealthMycarenetConfig {
     @Bean fun sumehrLogic() = SumehrLogicImpl()
     @Bean fun sumehrExport() = SumehrExport()
-    @Bean fun softwareMedicalFileLogic() = SoftwareMedicalFileLogicImpl()
+    @Bean fun softwareMedicalFileLogic(softwareMedicalFileExport: SoftwareMedicalFileExport, softwareMedicalFileImport: SoftwareMedicalFileImport) = SoftwareMedicalFileLogicImpl(softwareMedicalFileExport, softwareMedicalFileImport)
     @Bean fun softwareMedicalFileExport() = SoftwareMedicalFileExport()
-    @Bean
-    fun softwareMedicalFileImport(patientLogic: PatientLogic,
+    @Bean fun softwareMedicalFileImport(patientLogic: PatientLogic,
                                   healthcarePartyLogic: HealthcarePartyLogic,
                                   healthElementLogic: HealthElementLogic,
                                   contactLogic: ContactLogic,

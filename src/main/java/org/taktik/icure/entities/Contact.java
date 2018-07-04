@@ -65,7 +65,7 @@ public class Contact extends StoredICureDocument {
 
 	public Contact solveConflictWith(Contact other) {
 		super.solveConflictsWith(other);
-		this.encryptedSelf = this.encryptedSelf == null ? other.encryptedSelf : this.encryptedSelf;
+		this.setEncryptedSelf(this.getEncryptedSelf() == null ? other.getEncryptedSelf() : this.getEncryptedSelf());
 
 		this.openingDate = other.openingDate==null?this.openingDate:this.openingDate==null?other.openingDate:Long.valueOf(Math.min(this.openingDate,other.openingDate));
 		this.closingDate = other.closingDate==null?this.closingDate:this.closingDate==null?other.closingDate:Long.valueOf(Math.max(this.closingDate,other.closingDate));
@@ -171,16 +171,5 @@ public class Contact extends StoredICureDocument {
 
 	public void setExternalId(String externalId) {
 		this.externalId = externalId;
-	}
-
-	private String encryptedSelf;
-	@Override
-	public String getEncryptedSelf() {
-		return encryptedSelf;
-	}
-
-	@Override
-	public void setEncryptedSelf(String encryptedSelf) {
-		this.encryptedSelf = encryptedSelf;
 	}
 }

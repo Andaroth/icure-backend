@@ -167,15 +167,4 @@ public class HealthElement extends StoredICureDocument {
 	public void setIdService(String idService) {
 		this.idService = idService;
 	}
-
-	private String encryptedSelf;
-	@Override
-	public String getEncryptedSelf() {
-		return encryptedSelf;
-	}
-
-	@Override
-	public void setEncryptedSelf(String encryptedSelf) {
-		this.encryptedSelf = encryptedSelf;
-	}
 }
