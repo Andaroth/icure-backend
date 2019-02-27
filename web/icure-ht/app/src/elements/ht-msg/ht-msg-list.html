@@ -862,14 +862,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     unreadCount: {
                         type: Number,
                         value: 0
-                    },
-                    pageStart: {
-                        type: Number,
-                        value: 0
-                    },
-                    pageEnd: {
-                        type: Number,
-                        value: 50
                     }
                 };
             }
@@ -953,8 +945,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     if (!this.pages.length) this.push('pages',1)
                     let start = (page-1) * pageSize;
                     let end = page * pageSize;
-                    this.set('pageStart', start ||0)
-                    this.set('pageEnd', end ||pageSize)
                     grid.items = messages.slice(start, end);
                     // pagination ends here
                     this._scrollToTop()
